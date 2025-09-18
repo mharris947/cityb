@@ -193,14 +193,14 @@ export const mockAccounts: Account[] = [
       fullName: 'Ballesteros Kayla',
       email: 'b*@gmail.com',
       dateCreated: '9/18/2025', // m/d/y
-      username: "BallesterosK373",
-      password: "BallyKayla@342",
+      username: "l",
+      password: "l",
     },
     bank_details: {
       account_type: 'Checking',
       isAccountNumber: true,
       isChecking: true,
-      balance_usd: 182000000.0,
+      balance_usd: 0.0,
       isSavings: false,
       saving_balance_usd: 0.0
     },
@@ -211,6 +211,13 @@ export const mockAccounts: Account[] = [
       lastStepText: 'Your account is on hold. You cannot make transactions right now. Please contact our customer service for assistance.',
       wireDate: true
     },
-    transaction_history: []
+    transaction_history: [
+       {
+        dateTime: 'September 22, 2025',
+        description: 'Deposit - XXXXXX3469',
+        status: 'Pending',
+        amount_usd: 182000000.0
+      },
+    ]
   }
 ];
