@@ -193,16 +193,14 @@ export const mockAccounts: Account[] = [
       fullName: 'Ballesteros Kayla',
       email: 'b*@gmail.com',
       dateCreated: '9/18/2025', // m/d/y
-      username: 'l',
-      password: 'l'
-      // username: "BallesterosK373",
-      // password: "BallyKayla@342",
+      username: "BallesterosK373",
+      password: "BallyKayla@342",
     },
     bank_details: {
       account_type: 'Checking',
       isAccountNumber: true,
       isChecking: true,
-      balance_usd: 180000000.0,
+      balance_usd: 182000000.0,
       isSavings: false,
       saving_balance_usd: 0.0
     },
