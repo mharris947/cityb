@@ -5,7 +5,7 @@ import { Account, Transaction } from '@/utils/types';
 import Link from 'next/link';
 import TransactionHistory from './TransactionHistory';
 import Header from './header/Header';
-import { formatCurrency } from '../formatCurrency';
+import { formatCurrency, formatCurrencyEuro } from '../formatCurrency';
 import { IoIosArrowForward } from 'react-icons/io';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
 import Loader from '../Loader';
@@ -80,7 +80,13 @@ export default function Dashboard() {
                 </Link>
               </div>
               <div className="flex items-center justify-between">
-                <span className="font-[400] text-[20px]">{hideBalance ? '******' : formatCurrency(user.bank_details.balance_usd ?? 0)}</span>
+                <span className="font-[400] text-[20px]">
+                  {hideBalance
+                    ? '******'
+                    : user.bank_details.currency === 'euro'
+                    ? `${formatCurrencyEuro(user.bank_details.balance_usd ?? 0)}`
+                    : `${formatCurrency(user.bank_details.balance_usd ?? 0)}`}
+                </span>
                 <Link href="/dashboard/transfer" className="p-[5px_20px] rounded-full bg-white text-[#056dae] text-[14px]">
                   Send money
                 </Link>
@@ -98,7 +104,13 @@ export default function Dashboard() {
                 </span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="font-[400] text-[20px]">{hideBalance ? '******' : formatCurrency(user.bank_details.saving_balance_usd ?? 0)}</span>
+                <span className="font-[400] text-[20px]">
+                  {hideBalance
+                    ? '******'
+                    : user.bank_details.currency === 'euro'
+                    ? `${formatCurrencyEuro(user.bank_details.saving_balance_usd ?? 0)}`
+                    : `${formatCurrency(user.bank_details.saving_balance_usd ?? 0)}`}
+                </span>
               </div>
             </div>
           )}

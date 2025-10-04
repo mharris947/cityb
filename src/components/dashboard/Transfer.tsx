@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState, Fragment } from 'react';
 import SelectBks from '../dropdown/SelectBks';
-import { formatCurrency } from '../formatCurrency';
+import { formatCurrency, formatCurrencyEuro } from '../formatCurrency';
 import { Account } from '@/utils/types';
 import { generateRandomCode } from './generateRandomCode';
 import Link from 'next/link';
@@ -198,7 +198,9 @@ export default function Transfer() {
                     <span className="uppercase">
                       {user.holder.fullName} {user.holder.lastName}
                     </span>
-                    <span className="text-sm text-[#303030]">Balance: {formatCurrency(user.bank_details.balance_usd)}</span>
+                    <span className="text-sm text-[#303030]">
+                      Balance: {user.bank_details.currency === 'euro' ? formatCurrencyEuro(user.bank_details.balance_usd ?? 0) : formatCurrency(user.bank_details.balance_usd ?? 0)}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -207,7 +209,7 @@ export default function Transfer() {
                   <label htmlFor="" className="text-[#2e2e2e] text-sm">
                     Amount
                   </label>
-                  <button className="absolute text-[#888888] w-[50px] min-h-[50px] border-r left-0 text-lg bottom-[2px]">$</button>
+                  <button className="absolute text-[#888888] w-[50px] min-h-[50px] border-r left-0 text-lg bottom-[2px]">{user.bank_details.currency == 'euro' ? `$` : `€`}</button>
                   <input
                     type="number"
                     name="amount"
@@ -245,7 +247,7 @@ export default function Transfer() {
           {step === 3 && (
             <div>
               <p className="text-[14px] text-center text-zinc-700">
-                You are about to transfer {formatCurrency(Number(formData.amount))} to&nbsp;
+                You are about to transfer {user.bank_details.currency === 'euro' ? formatCurrencyEuro(Number(formData.amount)) : formatCurrency(Number(formData.amount))} to&nbsp;
                 <span className="uppercase font-[600]">{formData.selectedBank?.name}</span>
                 &nbsp;from your&nbsp;
                 <span className="font-[500]">CHECKING ACCOUNT</span>

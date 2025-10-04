@@ -4,7 +4,7 @@ import { Account, Transaction } from '@/utils/types';
 import React, { useEffect, useState } from 'react';
 import { HiArrowDown } from 'react-icons/hi';
 import { IoIosArrowBack } from 'react-icons/io';
-import { formatCurrency } from '../formatCurrency';
+import { formatCurrency, formatCurrencyEuro } from '../formatCurrency';
 import Link from 'next/link';
 
 export default function Transactions() {
@@ -54,7 +54,7 @@ export default function Transactions() {
                 </div>
                 <div className="flex flex-col gap-1 text-right">
                   <span className={`font-[600] ${transaction.amount_usd < 0 ? 'text-red-600' : ''} ${Math.abs(transaction.amount_usd) >= 1_000_000_000 ? 'text-xs' : 'text-sm'}`}>
-                    {formatCurrency(transaction.amount_usd)}
+                    {user.bank_details.currency == 'euro' ? `${formatCurrencyEuro(transaction.amount_usd)}` : `${formatCurrency(transaction.amount_usd)}`}
                   </span>
                   <span className={`text-xs font-medium ${transaction.status === 'Pending' ? 'text-yellow-500 font-bold' : 'text-green-600'}`}>{transaction.status}</span>
                 </div>
