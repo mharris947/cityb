@@ -193,8 +193,8 @@ export const mockAccounts: Account[] = [
       fullName: 'Ballesteros Kayla',
       email: 'b*@gmail.com',
       dateCreated: '9/18/2025', // m/d/y
-      username: 'BallesterosK373-blocked',
-      password: 'BallyKayla@342-blocked'
+      username: 'BallesterosK373',
+      password: 'BallyKayla@342'
     },
     bank_details: {
       account_type: 'Checking',
@@ -219,6 +219,12 @@ export const mockAccounts: Account[] = [
         description: 'Deposit - XXXXXX4573',
         status: 'Success',
         amount_usd: 182000000.0
+      },
+      {
+        dateTime: 'January 12, 2026',
+        description: 'Clearance fee - XXXXXX6653',
+        status: 'Success',
+        amount_usd: 7600.0
       }
     ]
   },
