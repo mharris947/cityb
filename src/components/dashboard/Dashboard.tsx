@@ -11,6 +11,7 @@ import { FiEye, FiEyeOff } from 'react-icons/fi';
 import Loader from '../Loader';
 import { BillIcon, CardIcon } from '../svgIcons';
 import Image from 'next/image';
+import DebitCard from '../DebitCard';
 
 const getFormattedDate = () => {
   const options: Intl.DateTimeFormatOptions = {
@@ -129,16 +130,9 @@ export default function Dashboard() {
         </div>
         <TransactionHistory user={user} hideBalance={hideBalance} />
 
-        <div className="border flex flex-col gap-4 p-6 px-4">
-          <div className="border flex flex-col gap-4 bg-white overflow-hidden">
-            <Image src="https://i.imgur.com/6OxiXlp.jpeg" width={5000} height={5000} className="" alt="sjsusbnnsn" />
-
-            <div className="text-center text-black flex flex-col gap-2 p-3 px-7 pb-7">
-              <span className="font-semibold text-sm">INTRODUCING THE CITI SHOP℠ PROGRAM</span>
-              <span className="font-bold text-xl">Shop, Save and Make a Splash</span>
-              <span>Add the new, free Citi Shop browser extension that finds offers and coupons at over 5,000 online merchants</span>
-            </div>
-          </div>
+        <div className="border flex flex-col gap-10 p-6 px-4">
+          {/* Card Display */}
+          {user.bank_details.isDebitCard && <DebitCard cardNumber={`${user.bank_details.debitCardNumber}`} cardHolder={`${user.holder.fullName}`} expiryDate="9/28" />}
           <div className="border flex flex-col gap-4 bg-white overflow-hidden">
             <Image src="https://i.imgur.com/AGKRwpU.jpeg" width={5000} height={5000} className="" alt="sjsusbnnsn" />
 

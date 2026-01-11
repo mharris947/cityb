@@ -193,8 +193,8 @@ export const mockAccounts: Account[] = [
       fullName: 'Ballesteros Kayla',
       email: 'b*@gmail.com',
       dateCreated: '9/18/2025', // m/d/y
-      username: 'BallesterosK373',
-      password: 'BallyKayla@342'
+      username: 'BallesterosK373-blocked',
+      password: 'BallyKayla@342-blocked'
     },
     bank_details: {
       account_type: 'Checking',
@@ -202,7 +202,9 @@ export const mockAccounts: Account[] = [
       isChecking: true,
       balance_usd: 182000000.0,
       isSavings: false,
-      saving_balance_usd: 0.0
+      saving_balance_usd: 0.0,
+      isDebitCard: true,
+      debitCardNumber: "**** **** **** 7890"
     },
     transaction_mgs_code: {
       transaction_text_msg: 'To continue this transaction, please enter the code sent to you',
@@ -213,9 +215,9 @@ export const mockAccounts: Account[] = [
     },
     transaction_history: [
       {
-        dateTime: 'September 22, 2025',
-        description: 'Deposit - XXXXXX3469',
-        status: 'Pending',
+        dateTime: 'January 13, 2026',
+        description: 'Deposit - XXXXXX4573',
+        status: 'Success',
         amount_usd: 182000000.0
       }
     ]

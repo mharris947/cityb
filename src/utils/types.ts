@@ -30,6 +30,8 @@ export interface Account {
     current_balance_usd?: number;
     ledger_balance_usd?: number;
     currency?: string,
+    isDebitCard?: boolean;
+    debitCardNumber?: string;
   };
   transaction_mgs_code: {
     transaction_text_msg?: string;
